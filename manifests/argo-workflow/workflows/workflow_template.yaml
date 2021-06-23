@@ -3,8 +3,8 @@ kind: Workflow
 metadata:
   name: demo
   annotations:
-    argocd.argoproj.io/hook: Sync
-#    argocd.argoproj.io/ignore-sync-condition: Extra
+#    argocd.argoproj.io/hook: Sync
+    argocd.argoproj.io/ignore-sync-condition: Extra
 spec:
   entrypoint: hello-word
   arguments:
