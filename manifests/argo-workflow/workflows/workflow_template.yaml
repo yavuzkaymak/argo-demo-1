@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Workflow
 metadata:
-  name: helloworld
+  generateName: helloworld
   annotations:
     argocd.argoproj.io/hook: Sync
     argocd.argoproj.io/hook-delete-policy: BeforeHookCreation
