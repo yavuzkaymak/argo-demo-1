@@ -3,7 +3,7 @@ kind: Workflow
 metadata:
   generateName: dhello-
   annotations:
-    argocd.argoproj.io/hook: PreSync
+    argocd.argoproj.io/hook: Sync
 #:q
 spec:
   entrypoint: hello-word
