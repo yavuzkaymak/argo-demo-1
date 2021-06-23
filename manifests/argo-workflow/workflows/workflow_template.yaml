@@ -4,14 +4,13 @@ metadata:
   generateName: dhello-
   annotations:
     argocd.argoproj.io/hook: PreSync
-#    argocd.argoproj.io/hook-delete-policy: HookSucceeded
-#    argocd.argoproj.io/ignore-sync-condition: Extra
+#:q
 spec:
   entrypoint: hello-word
   arguments:
     parameters:
     - name: coolname
-      value: "9999"
+      value: "deli"
   templates:
   - name: hello-word
     container:
