@@ -43,7 +43,7 @@ class ArgoInstaller:
         self.v1 = client.CoreV1Api()
         self.apiClient = client.ApiClient()
         self.ns = None
-        self.argo_workflow_deployment_file = "manifests/argo-workflow/argo_workflow_deploy.yaml"
+        self.argo_workflow_deployment_file = "manifests/argo-workflow/deployment/argo_workflow_deploy.yaml"
         self.argo_cd_deployment_file = "manifests/argo-cd/argo_cd_deploy.yaml"
 
     @staticmethod
