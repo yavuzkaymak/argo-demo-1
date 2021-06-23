@@ -10,7 +10,7 @@ spec:
   arguments:
     parameters:
     - name: coolname
-      value: "ASAF"
+      value: "CIMT"
   templates:
   - name: hello-word
     container:
