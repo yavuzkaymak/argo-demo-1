@@ -10,7 +10,7 @@ spec:
   arguments:
     parameters:
     - name: coolname
-      value: "kal"
+      value: "kereal"
   templates:
   - name: hello-word
     container:
