@@ -1,10 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Workflow
 metadata:
-  generateName: dhello-
-  annotations:
-    argocd.argoproj.io/hook: Sync
-#:q
+  name: helloworld
 spec:
   entrypoint: hello-word
   arguments:
