@@ -3,9 +3,9 @@ kind: Workflow
 metadata:
   name: dhello
   annotations:
-    argocd.argoproj.io/hook-delete-policy: HookSucceeded
+#    argocd.argoproj.io/hook-delete-policy: HookSucceeded
     argocd.argoproj.io/hook: Sync
-#    argocd.argoproj.io/ignore-sync-condition: Extra
+    argocd.argoproj.io/ignore-sync-condition: Extra
 spec:
   entrypoint: hello-word
   arguments:
