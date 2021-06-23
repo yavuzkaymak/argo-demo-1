@@ -2,13 +2,13 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: demo
-  namespace: argocd
+  namespace: argo-cd
 spec:
   project: default
   source:
-    repoURL: https://github.com/argoproj/argocd-example-apps.git
+    repoURL:  https://github.com/yavuzkaymak/argo-demo.git
     targetRevision: HEAD
-    path: manifests
+    path: manifests/argo-workflow
   destination:
     server: https://kubernetes.default.svc
     namespace: argo
