@@ -2,8 +2,10 @@ apiVersion: argoproj.io/v1alpha1
 kind: Workflow
 metadata:
   generateName: hello-word-app-
-#  annotations:
-##    argocd.argoproj.io/sync-options: Prune=true
+  annotations:
+    argocd.argoproj.io/sync-options: Prune=true
+#    argocd.argoproj.io/sync-options: Prune=true
+
 ##    argocd.argoproj.io/hook-delete-policy: BeforeHookCreation
 spec:
   entrypoint: hello-word
