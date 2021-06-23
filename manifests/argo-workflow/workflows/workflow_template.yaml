@@ -9,7 +9,7 @@ spec:
   arguments:
     parameters:
     - name: coolname
-      value: FATIH
+      value: "XX"
   templates:
   - name: hello-word
     container:
