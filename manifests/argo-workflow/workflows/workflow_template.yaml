@@ -11,7 +11,7 @@ spec:
   arguments:
     parameters:
     - name: coolname
-      value: "bobo"
+      value: "bobox"
   templates:
   - name: hello-word
     container:
