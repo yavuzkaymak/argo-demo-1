@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Workflow
+metadata:
+  generateName: hello-word
+spec:
+  entrypoint: hello-word
+  arguments:
+    parameters:
+    - name: coolname
+      value: ASAF
+  templates:
+  - name: hello-word
+    container:
+      image: vizgen/hello_word
+      env:
+        - name: COOL_NAME
+          value: "{{workflow.parameters.coolname}}"
+      
