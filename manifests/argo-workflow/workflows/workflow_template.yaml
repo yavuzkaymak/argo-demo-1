@@ -10,7 +10,7 @@ spec:
   arguments:
     parameters:
     - name: coolname
-      value: ASAF
+      value: FATIH
   templates:
   - name: hello-word
     container:
