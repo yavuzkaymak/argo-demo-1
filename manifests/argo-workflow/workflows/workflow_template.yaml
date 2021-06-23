@@ -9,7 +9,7 @@ spec:
   arguments:
     parameters:
     - name: coolname
-      value: "colo"
+      value: "tr"
   templates:
   - name: hello-word
     container:
