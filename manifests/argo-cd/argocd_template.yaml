@@ -1,14 +1,15 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  generateName: helloworkflow
+  generateName: demo
   annotations:
     argocd.argoproj.io/ignore-sync-condition: Extra
   namespace: argo-cd
 spec:
   project: default
   syncPolicy:
-    automated: {}
+    automated:
+      prune: true
   source:
     repoURL:  https://github.com/yavuzkaymak/argo-demo.git
     targetRevision: HEAD
