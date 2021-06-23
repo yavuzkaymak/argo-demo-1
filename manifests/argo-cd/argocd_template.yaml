@@ -10,7 +10,7 @@ spec:
   source:
     repoURL:  https://github.com/yavuzkaymak/argo-demo.git
     targetRevision: HEAD
-    path: manifests/argo-workflow
+    path: manifests/argo-workflow/workflows
   destination:
     server: https://kubernetes.default.svc
     namespace: argo
