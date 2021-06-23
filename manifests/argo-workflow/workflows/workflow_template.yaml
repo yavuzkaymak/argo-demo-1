@@ -12,7 +12,7 @@ spec:
   arguments:
     parameters:
     - name: coolname
-      value: "nsfsew"
+      value: "DEFNE"
   templates:
   - name: hello-word
     container:
