@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Workflow
 metadata:
-  name: hello-word
+  name: demo
 #  annotations:
 ##    argocd.argoproj.io/hook: Sync
 #    argocd.argoproj.io/ignore-sync-condition: Extra
@@ -10,7 +10,7 @@ spec:
   arguments:
     parameters:
     - name: coolname
-      value: "XAX"
+      value: "ASAF"
   templates:
   - name: hello-word
     container:
