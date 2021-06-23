@@ -12,7 +12,7 @@ spec:
   arguments:
     parameters:
     - name: coolname
-      value: "yavuz"
+      value: "fdsaf"
   templates:
   - name: hello-word
     container:
