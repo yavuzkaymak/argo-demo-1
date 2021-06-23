@@ -3,7 +3,6 @@ kind: Workflow
 metadata:
   name: helloworld-1
   annotations:
-    argocd.argoproj.io/hook: Sync
     argocd.argoproj.io/sync-options: Prune=true
     argocd.argoproj.io/hook-delete-policy: BeforeHookCreation
 spec:
@@ -11,7 +10,7 @@ spec:
   arguments:
     parameters:
     - name: coolname
-      value: "tt"
+      value: "kal"
   templates:
   - name: hello-word
     container:
