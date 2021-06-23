@@ -1,10 +1,11 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Workflow
 metadata:
-  generateName: demo
+  name: demo
   annotations:
     argocd.argoproj.io/hook: Sync
     argocd.argoproj.io/hook-delete-policy: HookSucceeded
+    argocd.argoproj.io/ignore-sync-condition: Extra
 spec:
   entrypoint: hello-word
   arguments:
