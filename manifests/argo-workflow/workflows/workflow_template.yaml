@@ -3,6 +3,7 @@ kind: Workflow
 metadata:
   name: helloworld
   annotations:
+    argocd.argoproj.io/hook: Sync
     argocd.argoproj.io/hook-delete-policy: BeforeHookCreation
 spec:
   entrypoint: hello-word
