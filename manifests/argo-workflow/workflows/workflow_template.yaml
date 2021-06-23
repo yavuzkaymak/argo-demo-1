@@ -4,15 +4,13 @@ metadata:
   generateName: hello-word-app-
   annotations:
     argocd.argoproj.io/sync-options: Prune=true
-    argocd.argoproj.io/hook: Sync
-
     argocd.argoproj.io/hook-delete-policy: BeforeHookCreation
 spec:
   entrypoint: hello-word
   arguments:
     parameters:
     - name: coolname
-      value: "FATIH"
+      value: "ZEKI"
   templates:
   - name: hello-word
     container:
