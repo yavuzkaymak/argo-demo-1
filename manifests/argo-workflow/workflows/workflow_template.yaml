@@ -10,7 +10,7 @@ spec:
   arguments:
     parameters:
     - name: coolname
-      value: "mmmmjl"
+      value: "ölkklöklö"
   syncPolicy:
     automated:
       prune: true
