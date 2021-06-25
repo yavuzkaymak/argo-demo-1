@@ -10,7 +10,7 @@ spec:
   arguments:
     parameters:
     - name: coolname
-      value: "FATMA"
+      value: "ASAF"
   syncPolicy:
     automated:
       prune: true
