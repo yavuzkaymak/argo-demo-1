@@ -2,6 +2,7 @@ import base64
 import logging
 import os
 import sys
+import time
 
 from kubernetes import client, config, watch, utils
 import dotenv
@@ -22,7 +23,7 @@ def skip_if_already_exists(e, resource: str):
     info = json.loads(e.api_exceptions[0].body)
     if info.get('reason').lower() == 'alreadyexists':
         print("[WARN] {} is already deployed. Skipping".format(resource))
-        pass
+        return True
     else:
         print("[ERROR] could not deploy")
         raise e
@@ -105,12 +106,14 @@ class ArgoInstaller:
             utils.create_from_yaml(api_client, yaml_file=yml, **kwargs)
 
         except utils.FailToCreateError as e:
-            skip_if_already_exists(e, resource=label.upper())
+            if skip_if_already_exists(e, resource=label.upper()):
+                return
 
         watcher = watch.Watch()
         for event in watcher.stream(func=self.v1.list_namespaced_pod, namespace=self.ns_argocd, timeout_seconds=self.timeout):
             if event['object'].status.phase == "Running":
                 watcher.stop()
+        time.sleep(60)
         print(f"[INFO ] {label.upper()} is complete.")
 
     def deployNamespacedCRD(self, yml: str):
@@ -138,8 +141,6 @@ class ArgoInstaller:
 
     def getNodePort(self, namespace: str, service_name: str):
         response = self.v1.list_namespaced_service(namespace=namespace, field_selector=f"metadata.name={service_name}")
-        if service_name == "argo-server":
-            print(str(response.items))
         return str(response.items[0].spec.ports[0].node_port)
 
     def getSecret(self, namespace: str, secret_name: str):
