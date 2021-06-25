@@ -3,7 +3,7 @@ kind: Workflow
 metadata:
   generateName: hello-word-app-
   annotations:
-    argocd.argoproj.io/hook: PostSync
+    argocd.argoproj.io/hook: Sync
     argocd.argoproj.io/sync-options: Prune=true
     argocd.argoproj.io/hook-delete-policy: HookSucceeded
 spec:
