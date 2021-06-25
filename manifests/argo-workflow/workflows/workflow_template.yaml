@@ -3,7 +3,7 @@ kind: Workflow
 metadata:
   generateName: hello-word-app-
   annotations:
-    argocd.argoproj.io/hook: Skip
+    argocd.argoproj.io/hook: PreSync
     argocd.argoproj.io/sync-options: Prune=true
     argocd.argoproj.io/hook-delete-policy: HookSucceeded
 spec:
@@ -11,7 +11,7 @@ spec:
   arguments:
     parameters:
     - name: coolname
-      value: "merhaba"
+      value: "merhabaaa"
   syncPolicy:
     automated:
       prune: true
