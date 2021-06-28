@@ -17,7 +17,7 @@ spec:
     arguments:
       parameters:
       - name: coolname
-        value: "AAA"
+        value: ""
     templates:
     - name: hello-word
       container:
@@ -27,3 +27,10 @@ spec:
           - name: COOL_NAME
             value: "{{workflow.parameters.coolname}}"
 
+    - name: controller
+      steps:
+      - - name: salute
+          template: hello-word
+      - - name: error
+          template: : error
+          when: "{{steps.salute.output.result == 'Empty Value' }}"
