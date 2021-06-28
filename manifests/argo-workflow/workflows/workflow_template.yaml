@@ -15,8 +15,8 @@ spec:
   syncPolicy:
     automated:
       prune: true
-    syncOptions:
-      - Replace=true
+#    syncOptions:
+#      - Replace=true
   templates:
   - name: hello-word
     container:
