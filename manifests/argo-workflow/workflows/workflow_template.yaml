@@ -3,7 +3,7 @@ kind: Workflow
 metadata:
   name: hello-word-app
   annotations:
-    argocd.argoproj.io/sync-options: Sync
+#    argocd.argoproj.io/sync-options: Sync
     argocd.argoproj.io/hook-delete-policy: BeforeHookCreation
     argocd.argoproj.io/ignore-sync-condition: Extra
 spec:
@@ -12,12 +12,12 @@ spec:
     parameters:
     - name: coolname
       value: "aaa"
-  syncPolicy:
-    automated:
-      prune: true
-#    syncOptions:
-#      - Replace=true
-  templates:
+#  syncPolicy:
+#    automated:
+#      prune: true
+##    syncOptions:
+##      - Replace=true
+#  templates:
   - name: hello-word
     container:
       image: vizgen/hello_word
