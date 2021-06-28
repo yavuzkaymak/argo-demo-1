@@ -5,7 +5,6 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-options: Prune=false
     argocd.argoproj.io/hook-delete-policy: BeforeHookCreation
-    argocd.argoproj.io/hook: Sync
 
 spec:
   entrypoint: hello-word
@@ -16,8 +15,8 @@ spec:
   syncPolicy:
     automated:
       prune: true
-    syncOptions:
-      - Replace=true
+#    syncOptions:
+#      - Replace=true
   templates:
   - name: hello-word
     container:
