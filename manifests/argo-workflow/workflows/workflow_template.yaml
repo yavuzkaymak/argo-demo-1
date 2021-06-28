@@ -3,7 +3,7 @@ kind: Workflow
 metadata:
   generateName: hello-word-app
   annotations:
-    argocd.argoproj.io/sync-options: Prune=true
+#    argocd.argoproj.io/sync-options: Prune=true
     argocd.argoproj.io/hook-delete-policy: HookSucceeded
     argocd.argoproj.io/ignore-sync-condition: Extra
 spec:
@@ -11,10 +11,10 @@ spec:
   arguments:
     parameters:
     - name: coolname
-      value: "aaa2"
+      value: "aaa3"
   syncPolicy:
-    automated:
-      prune: true
+#    automated:
+#      prune: true
     syncOptions:
       - Replace=true
   templates:
