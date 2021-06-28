@@ -11,7 +11,7 @@ spec:
   arguments:
     parameters:
     - name: coolname
-      value: "trate"
+      value: "asaf"
   syncPolicy:
     automated:
       prune: true
