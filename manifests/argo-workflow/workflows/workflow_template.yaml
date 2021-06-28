@@ -28,3 +28,15 @@ spec:
           - name: COOL_NAME
             value: "{{workflow.parameters.coolname}}"
 
+    - name: exit-handler
+      steps:
+      - - name: backoff
+          template: backoff
+          when: "{{workflow.status}} != Succeeded"
+
+    - name: backoff
+      container:
+         image: alpine:latest
+         command: [sh, c]
+         args: ["some other job"]
+
