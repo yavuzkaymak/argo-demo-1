@@ -4,19 +4,21 @@ metadata:
   name: hello-word-app
   annotations:
     argocd.argoproj.io/sync-options: PostSync
-#    argocd.argoproj.io/hook-delete-policy: BeforeHookCreation
+    argocd.argoproj.io/hook-delete-policy: BeforeHookCreation
     argocd.argoproj.io/ignore-sync-condition: Extra
+    argocd.argoproj.io/sync-options: PruneLast=true
+    argocd.argoproj.io/sync-options: Replace=true
 spec:
   entrypoint: hello-word
   arguments:
     parameters:
     - name: coolname
       value: "sdsa"
-  syncPolicy:
-    automated:
-      prune: true
-    syncOptions:
-      - Replace=true
+#  syncPolicy:
+#    automated:
+#      prune: true
+#    syncOptions:
+#      - Replace=true
   templates:
   - name: hello-word
     container:
