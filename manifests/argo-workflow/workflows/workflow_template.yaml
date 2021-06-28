@@ -17,7 +17,7 @@ spec:
     arguments:
       parameters:
       - name: coolname
-        value: "sdsa"
+        value: "cimt"
     templates:
     - name: hello-word
       container:
