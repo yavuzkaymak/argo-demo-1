@@ -11,7 +11,7 @@ spec:
   arguments:
     parameters:
     - name: coolname
-      value: "world"
+      value: "sdsa"
   syncPolicy:
 #    automated:
 #      prune: true
