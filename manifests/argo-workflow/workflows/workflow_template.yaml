@@ -11,7 +11,7 @@ spec:
   arguments:
     parameters:
     - name: coolname
-      value: "aaa6"
+      value: "bbb"
   syncPolicy:
 #    automated:
 #      prune: true
@@ -21,6 +21,8 @@ spec:
   - name: hello-word
     container:
       image: vizgen/hello_word
+      imagepullpolicy: always
       env:
         - name: COOL_NAME
           value: "{{workflow.parameters.coolname}}"
+
