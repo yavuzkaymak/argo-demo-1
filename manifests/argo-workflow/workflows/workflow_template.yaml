@@ -12,9 +12,9 @@ spec:
     parameters:
     - name: coolname
       value: "world"
-#  syncPolicy:
-#    automated:
-#      prune: true
+  syncPolicy:
+    automated:
+      prune: true
     syncOptions:
       - Replace=true
   templates:
