@@ -148,6 +148,7 @@ class ArgoInstaller:
         return str(base64.b64decode(json.loads(secret)["password"]))[2:-1]
 
     def argoCDCredentials(self):
+        self.patchService("argocd-server", namespace=self.ns_argocd, body=self.node_port_patch)
         port = self.getNodePort(self.ns_argocd, "argocd-server")
         secret = self.getSecret(self.ns_argocd, secret_name="argocd-initial-admin-secret")
         userName = "admin"
@@ -177,7 +178,6 @@ class ArgoInstaller:
                             namespace=self.ns_argocd)
         self.deployFromYaml(api_client=self.apiClient, yml=self.argo_workflow_deployment_file, namespace=self.ns_argo_workflow, label="argo-workflow")
         self.deployNamespacedCRD(yml=self.argo_cd_template_file)
-        self.patchService("argocd-server", namespace=self.ns_argocd, body=self.node_port_patch)
         self.argoCDCredentials()
         self.argoWFCredentials()
 
