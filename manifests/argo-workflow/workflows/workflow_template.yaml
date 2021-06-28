@@ -6,7 +6,7 @@ metadata:
 #    argocd.argoproj.io/sync-options: PostSync
 #    argocd.argoproj.io/hook-delete-policy: BeforeHookCreation
 #    argocd.argoproj.io/ignore-sync-condition: Extra
-#    argocd.argoproj.io/sync-options: PruneLast=true
+    argocd.argoproj.io/sync-options: PruneLast=true
 #    argocd.argoproj.io/sync-options: Replace=true
 spec:
   schedule: "* * * * *"
