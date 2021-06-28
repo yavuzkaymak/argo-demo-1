@@ -13,7 +13,7 @@ spec:
   concurrencyPolicy: "Replace"
   startingDeadlineSeconds: 0
   workflowSpec:
-    entrypoint: entry
+    entrypoint: hello-word
     arguments:
       parameters:
       - name: coolname
