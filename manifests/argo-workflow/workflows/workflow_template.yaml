@@ -11,7 +11,7 @@ spec:
   arguments:
     parameters:
     - name: coolname
-      value: "asaf"
+      value: "ppp"
   syncPolicy:
     automated:
       prune: true
