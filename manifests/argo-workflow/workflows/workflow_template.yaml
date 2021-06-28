@@ -20,31 +20,10 @@ spec:
         value: "AAA"
     templates:
     - name: hello-word
-      inputs:
-        parameters:
-          - name: coolname
       container:
         image: vizgen/hello_word
         imagePullPolicy: Always
         env:
           - name: COOL_NAME
-            value: "{{input.parameters.coolname}}"
-
-    - name: backoff
-      container:
-         image: alpine:latest
-         command: [sh, c]
-         args: ["some other job"]
-
-    - name: entry
-      dag:
-        tasks:
-        - name: salute
-          template: hello-word
-          arguments:
-            parameters: [ { name: coolname, value: "asaf" } ]
-        - name: replacement
-          depends: "task.salute.Failed || task.salute.Errored"
-          template: backoff
-
+            value: "{{workflow.parameters.coolname}}"
 
