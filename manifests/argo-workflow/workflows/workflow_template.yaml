@@ -11,7 +11,7 @@ spec:
   arguments:
     parameters:
     - name: coolname
-      value: "aaa5"
+      value: "aaa6"
   syncPolicy:
 #    automated:
 #      prune: true
