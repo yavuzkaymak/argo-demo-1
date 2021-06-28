@@ -12,12 +12,13 @@ spec:
   schedule: "* * * * *"
   concurrencyPolicy: "Replace"
   startingDeadlineSeconds: 0
+  onExit: exit-handler
   workflowSpec:
     entrypoint: hello-word
     arguments:
       parameters:
       - name: coolname
-        value: "cimt"
+        value: ""
     templates:
     - name: hello-word
       container:
