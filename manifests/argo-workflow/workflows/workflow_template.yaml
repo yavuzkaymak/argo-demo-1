@@ -13,7 +13,7 @@ spec:
   concurrencyPolicy: "Replace"
   startingDeadlineSeconds: 0
   workflowSpec:
-    entrypoint: hello-word
+    entrypoint: controller
     arguments:
       parameters:
       - name: coolname
@@ -26,11 +26,18 @@ spec:
         env:
           - name: COOL_NAME
             value: "{{workflow.parameters.coolname}}"
+    - name: error
+      container:
+        image: vizgen/hello_word
+        imagePullPolicy: Always
+        env:
+          - name: COOL_NAME
+            value: "gggg"
 
     - name: controller
       steps:
       - - name: salute
           template: hello-word
       - - name: error
-          template: : error
+          template: error
           when: "{{steps.salute.output.result == 'Empty Value' }}"
