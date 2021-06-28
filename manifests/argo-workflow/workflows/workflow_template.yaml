@@ -1,30 +1,29 @@
 apiVersion: argoproj.io/v1alpha1
-kind: Workflow
+kind: CronWorkflow
 metadata:
-  name: hello-word-app
-  annotations:
-    argocd.argoproj.io/sync-options: PostSync
-    argocd.argoproj.io/hook-delete-policy: BeforeHookCreation
-    argocd.argoproj.io/ignore-sync-condition: Extra
-    argocd.argoproj.io/sync-options: PruneLast=true
-    argocd.argoproj.io/sync-options: Replace=true
+  name: hello-word-cron
+#  annotations:
+#    argocd.argoproj.io/sync-options: PostSync
+#    argocd.argoproj.io/hook-delete-policy: BeforeHookCreation
+#    argocd.argoproj.io/ignore-sync-condition: Extra
+#    argocd.argoproj.io/sync-options: PruneLast=true
+#    argocd.argoproj.io/sync-options: Replace=true
 spec:
-  entrypoint: hello-word
-  arguments:
-    parameters:
-    - name: coolname
-      value: "sdsa"
-#  syncPolicy:
-#    automated:
-#      prune: true
-#    syncOptions:
-#      - Replace=true
-  templates:
-  - name: hello-word
-    container:
-      image: vizgen/hello_word
-      imagePullPolicy: Always
-      env:
-        - name: COOL_NAME
-          value: "{{workflow.parameters.coolname}}"
+  schedule: "* * * * *"
+  concurrencyPolicy: "Replace"
+  startingDeadlineSeconds: 0
+  workflowSpec:
+    entrypoint: hello-word
+    arguments:
+      parameters:
+      - name: coolname
+        value: "sdsa"
+    templates:
+    - name: hello-word
+      container:
+        image: vizgen/hello_word
+        imagePullPolicy: Always
+        env:
+          - name: COOL_NAME
+            value: "{{workflow.parameters.coolname}}"
 
