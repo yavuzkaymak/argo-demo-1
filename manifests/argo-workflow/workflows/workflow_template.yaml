@@ -2,8 +2,8 @@ apiVersion: argoproj.io/v1alpha1
 kind: Workflow
 metadata:
   name: hello-word-app
-#  annotations:
-#    argocd.argoproj.io/sync-options: PreSync
+  annotations:
+    argocd.argoproj.io/sync-options: PreSync
 ##    argocd.argoproj.io/hook-delete-policy: HookS
 #    argocd.argoproj.io/ignore-sync-condition: Extra
 spec:
@@ -11,7 +11,7 @@ spec:
   arguments:
     parameters:
     - name: coolname
-      value: "ffff"
+      value: "gggg"
 #  syncPolicy:
 #    automated:
 #      prune: true
