@@ -14,7 +14,7 @@ spec:
   startingDeadlineSeconds: 0
   onExit: exit-handler
   workflowSpec:
-    entrypoint: hello-word
+    entrypoint: entry
     arguments:
       parameters:
       - name: coolname
@@ -28,15 +28,19 @@ spec:
           - name: COOL_NAME
             value: "{{workflow.parameters.coolname}}"
 
-    - name: exit-handler
-      steps:
-      - - name: backoff
-          template: backoff
-          when: "{{workflow.status}} != Succeeded"
-
     - name: backoff
       container:
          image: alpine:latest
          command: [sh, c]
          args: ["some other job"]
+
+    - name: entry
+      dag:
+        tasks:
+        - name: salute
+          template: hello-word
+        - name: replacement
+          depends: "task.salute.Failed || task.salute.Errored"
+          template: backoff
+
 
