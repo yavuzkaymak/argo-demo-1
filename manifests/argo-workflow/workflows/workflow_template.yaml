@@ -9,7 +9,7 @@ metadata:
 #    argocd.argoproj.io/sync-options: PruneLast=true
 #    argocd.argoproj.io/sync-options: Replace=true
 spec:
-  schedule: "0/15 * * * * *"
+  schedule: "0,15 0 0 ? * * *"
   concurrencyPolicy: "Replace"
   startingDeadlineSeconds: 0
   onExit: exit-handler
