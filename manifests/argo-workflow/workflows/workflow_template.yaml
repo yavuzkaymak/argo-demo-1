@@ -10,7 +10,7 @@ spec:
   arguments:
     parameters:
     - name: coolname
-      value: "hayda"
+      value: "balue"
   syncPolicy:
     automated:
       prune: true
