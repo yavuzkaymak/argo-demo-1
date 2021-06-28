@@ -11,7 +11,7 @@ spec:
   arguments:
     parameters:
     - name: coolname
-      value: "dfad"
+      value: "world"
   syncPolicy:
     automated:
       prune: true
