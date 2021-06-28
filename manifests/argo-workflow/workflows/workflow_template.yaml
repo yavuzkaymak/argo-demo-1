@@ -13,8 +13,8 @@ spec:
     - name: coolname
       value: "cccc"
   syncPolicy:
-#    automated:
-#      prune: true
+    automated:
+      prune: true
     syncOptions:
       - Replace=true
   templates:
