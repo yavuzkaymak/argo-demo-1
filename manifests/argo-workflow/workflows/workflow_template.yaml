@@ -10,7 +10,7 @@ spec:
   arguments:
     parameters:
     - name: coolname
-      value: "ppp3"
+      value: "ppp4"
   syncPolicy:
     automated:
       prune: true
