@@ -1,15 +1,19 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  generateName: demo
+  name: demo
   annotations:
     argocd.argoproj.io/ignore-sync-condition: Extra
-  namespace: argo-cd
+    argocd.argoproj.io/sync-options: Prune=true
+    argocd.argoproj.io/hook-delete-policy: BeforeHookCreation
+  namespace: argocd
 spec:
   project: default
   syncPolicy:
     automated:
       prune: true
+    syncOptions:
+      - Replace=true
   source:
     repoURL:  https://github.com/yavuzkaymak/argo-demo.git
     targetRevision: HEAD
