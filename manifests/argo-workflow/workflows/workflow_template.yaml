@@ -4,7 +4,7 @@ metadata:
   name: hello-word-app
   annotations:
 #    argocd.argoproj.io/sync-options: Prune=true
-   argocd.argoproj.io/hook-delete-policy: BeforeHookCreation
+    argocd.argoproj.io/hook-delete-policy: BeforeHookCreation
     argocd.argoproj.io/ignore-sync-condition: Extra
 spec:
   entrypoint: hello-word
