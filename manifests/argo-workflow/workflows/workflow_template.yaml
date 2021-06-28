@@ -10,7 +10,7 @@ spec:
   arguments:
     parameters:
     - name: coolname
-      value: "balue"
+      value: "trate"
   syncPolicy:
     automated:
       prune: true
