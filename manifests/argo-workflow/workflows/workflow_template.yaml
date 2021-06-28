@@ -21,7 +21,7 @@ spec:
   - name: hello-word
     container:
       image: vizgen/hello_word
-      imagepullpolicy: always
+      imagePullPolicy: always
       env:
         - name: COOL_NAME
           value: "{{workflow.parameters.coolname}}"
