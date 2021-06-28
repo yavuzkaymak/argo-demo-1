@@ -12,7 +12,6 @@ spec:
   schedule: "* * * * *"
   concurrencyPolicy: "Replace"
   startingDeadlineSeconds: 0
-  onExit: exit-handler
   workflowSpec:
     entrypoint: entry
     arguments:
