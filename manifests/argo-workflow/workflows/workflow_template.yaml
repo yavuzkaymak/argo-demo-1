@@ -11,12 +11,12 @@ spec:
   arguments:
     parameters:
     - name: coolname
-      value: "eeee"
-  syncPolicy:
-    automated:
-      prune: true
-    syncOptions:
-      - Replace=true
+      value: "ffff"
+#  syncPolicy:
+#    automated:
+#      prune: true
+#    syncOptions:
+#      - Replace=true
   templates:
   - name: hello-word
     container:
