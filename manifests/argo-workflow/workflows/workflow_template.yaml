@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: CronWorkflow
 metadata:
   name: hello-word-cron
-#  annotations:
+  annotations:
 #    argocd.argoproj.io/sync-options: PostSync
 #    argocd.argoproj.io/hook-delete-policy: BeforeHookCreation
 #    argocd.argoproj.io/ignore-sync-condition: Extra
