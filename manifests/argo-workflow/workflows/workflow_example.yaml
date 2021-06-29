@@ -13,5 +13,6 @@ spec:
   concurrencyPolicy: "Replace"
   startingDeadlineSeconds: 0
   workflowSpec:
+    entrypoint: main
     workflowTemplateRef:
       name: hello-template
