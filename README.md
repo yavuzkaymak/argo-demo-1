@@ -1,6 +1,6 @@
 # argo-demo
 
-The image installs in argo-cd and argo-workflows in given kubernetes cluster. 
+The image installs argo-cd and argo-workflows in given kubernetes cluster. 
 Argo-cd is in argocd, argo-worklows in argo namespaces created. Argo-cd by default listens to 
 manifests/argo-workflow/workflows and implements the changes in this folder.
 
