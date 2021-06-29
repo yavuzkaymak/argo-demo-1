@@ -53,9 +53,9 @@ class ArgoInstaller:
         self.customObjectApi = client.CustomObjectsApi(self.apiClient)
         self.ns_argocd = "argocd"
         self.ns_argo_workflow = "argo"
-        self.argo_workflow_deployment_file = "manifests/argo-workflow/deployment/argo_workflow_deploy.yaml"
-        self.argo_cd_deployment_file = "manifests/argo-cd/argo_cd_deploy.yaml"
-        self.argo_cd_template_file = "manifests/argo-cd/argo_cd_template.yaml"
+        self.argo_workflow_deployment_file = "../manifests/argo-workflow/deployment/argo_workflow_deploy.yaml"
+        self.argo_cd_deployment_file = "../manifests/argo-cd/argo_cd_deploy.yaml"
+        self.argo_cd_template_file = "../manifests/argo-cd/argo_cd_template.yaml"
         self.node_port_patch = {"spec": {"type": "NodePort"}}
 
     @staticmethod
