@@ -13,12 +13,17 @@ spec:
   concurrencyPolicy: "Replace"
   startingDeadlineSeconds: 0
   workflowSpec:
-    entrypoint: hello-word
+    entrypoint: hello
     arguments:
       parameters:
       - name: coolname
-        value: "AAA"
+        value: "CIMT"
     templates:
+    - name: hello
+      steps:
+      - - name: salute
+          template: hello-world
+
     - name: hello-word
       container:
         image: vizgen/hello_word
