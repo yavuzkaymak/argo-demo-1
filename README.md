@@ -13,7 +13,9 @@ will not end up messing another kubernetes cluster.
 
 An image is found in dockerhub
 
-docker run -rm -it vizgen/argo
+docker run -rm -it -v path/to/mykubeconfig:./kube vizgen/argo
+
+Better way would be building your own image.
 
 ### Usage Python Way
 
