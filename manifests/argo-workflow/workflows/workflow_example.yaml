@@ -13,23 +13,5 @@ spec:
   concurrencyPolicy: "Replace"
   startingDeadlineSeconds: 0
   workflowSpec:
-    entrypoint: hello
-    arguments:
-      parameters:
-      - name: coolname
-        value: "CIMT"
-    templates:
-
-      - name: hello
-        steps:
-          - - name: salute
-              template: hello-world
-
-      - name: hello-word
-        container:
-          image: vizgen/hello_word
-          imagePullPolicy: Always
-          env:
-            - name: COOL_NAME
-              value: "{{workflow.parameters.coolname}}"
-
+    workflowTemplateRef:
+      name: hello-template
