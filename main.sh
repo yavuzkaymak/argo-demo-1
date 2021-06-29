@@ -11,7 +11,7 @@ argoworkflow_labels="-l app=argo-server"
 argocd_labels="--all"
 
 function createNamespace() {
-
+  #arg[1] -> namespace
   output=$(kubectl create namespace "$1" 2>&1 >/dev/null)
 
   if [[ $output == *"AlreadyExists"* ]]; then
@@ -26,7 +26,7 @@ function installer() {
   kubectl apply -n "$1" -f "$2" >/dev/null && \
   kubectl wait --for=condition=Ready --timeout=120s pods -n "$1" "$3"  >/dev/null
 
-  if [[ $1 -ne 0 ]]; then
+  if [[ $? -ne 0 ]]; then
     echo "[INFO] $1 could not be deployed"; else
     echo "[INFO] $1 has been deployed"
   fi
