@@ -1,0 +1,29 @@
+apiVersion: argoproj.io/v1alpha1
+kind: WorkflowTemplate
+metadata:
+  name: hello-template
+spec:
+  entrypoint: main
+  templates:
+    - name: main
+      steps:
+        - - name: salute
+            template: hello-word
+        - - name: on-error
+            template: subsitute
+            when: "{{steps.salute.result}} == Empty Value"
+
+    - name: hello-word
+      container:
+        image: vizgen/hello_word
+        imagePullPolicy: Always
+        env:
+          - name: COOL_NAME
+            value: "BBB"
+
+    - name: on-error
+      container:
+        image: alpine:latest
+        args: [sh, -c, "echo hello"]
+
+
