@@ -1,13 +1,13 @@
 # argo-demo
 
-The image installs argo-cd and argo-workflows in given kubernetes cluster. 
-Argo-cd is in argocd, argo-worklows in argo namespaces created. Argo-cd by default listens to 
+The image installs argo-cd and argo-workflows in a given kubernetes cluster. 
+Argo-cd is in argocd, argo-worklows is in argo namespaces created. Argo-cd by default listens to 
 manifests/argo-workflow/workflows and implements the changes in this folder.
 
 It deploys a sample workflow using a workflow template. Workflow consists of a dag which first 
 executes a Talend Job and only if the Job fails executes a shell command in an alpine container.
 
-The Talend Job look for "COOL_NAME". If the variable is not found "CIMT" will be used as default. If the
+The Talend job looks for "COOL_NAME". If the variable is not found "CIMT" will be used as default. If the
 variable exists but as an empty string, it will throw an error which will trigger the second job.
 
 You can manipulate the variable using Argo Workflows' gui.
