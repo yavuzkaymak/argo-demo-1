@@ -147,8 +147,7 @@ class ArgoInstaller:
         secret = str(self.v1.read_namespaced_secret(name= secret_name, namespace=namespace).data).replace("\'", "\"")
         return str(base64.b64decode(json.loads(secret)["password"]))[2:-1]
 
-    def argoCDCredentials(self):
-        self.patchService("argocd-server", namespace=self.ns_argocd, body=self.node_port_patch)
+    def getArgoCDCredentials(self):
         port = self.getNodePort(self.ns_argocd, "argocd-server")
         secret = self.getSecret(self.ns_argocd, secret_name="argocd-initial-admin-secret")
         userName = "admin"
@@ -156,13 +155,13 @@ class ArgoInstaller:
         print (f"[INFO] ArgoCD UI is username is {userName}")
         print (f"[INFO] ArgoCD UI is password is {secret}")
 
-    def argoWFCredentials(self):
-        self.patchService(name="argo-server", namespace=self.ns_argo_workflow, body=self.node_port_patch)
+
+    def getArgoWFCredentials(self):
         port = self.getNodePort(self.ns_argo_workflow, "argo-server")
         print (f"[INFO] ArgoWorkflow UI is accessible at https://localhost:{port}")
 
 
-    def patchService(self, name: str, namespace: str, body: dict, **kwargs):
+    def patchServices(self, name: str, namespace: str, body: dict, **kwargs):
         try:
 
             self.v1.patch_namespaced_service(name, namespace, body=body, **kwargs)
@@ -174,12 +173,13 @@ class ArgoInstaller:
     def main(self):
         self.createNamespace(namespace=self.ns_argocd)
         self.createNamespace(namespace=self.ns_argo_workflow)
-        self.deployFromYaml(api_client=self.apiClient, yml=self.argo_cd_deployment_file, label="argo-cd",
-                            namespace=self.ns_argocd)
+        self.deployFromYaml(api_client=self.apiClient, yml=self.argo_cd_deployment_file, label="argo-cd", namespace=self.ns_argocd)
         self.deployFromYaml(api_client=self.apiClient, yml=self.argo_workflow_deployment_file, namespace=self.ns_argo_workflow, label="argo-workflow")
+        self.patchServices(name="argocd-server", namespace=self.ns_argocd, body=self.node_port_patch)
+        self.patchServices(name="argo-server", namespace=self.ns_argo_workflow, body=self.node_port_patch)
         self.deployNamespacedCRD(yml=self.argo_cd_template_file)
-        self.argoCDCredentials()
-        self.argoWFCredentials()
+        self.getArgoCDCredentials()
+        self.getArgoWFCredentials()
 
 
 

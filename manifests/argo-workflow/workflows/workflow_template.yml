@@ -7,13 +7,6 @@ metadata:
 spec:
   entrypoint: dagger
   templates:
-#    - name: main
-#      steps:
-#        - - name: salute
-#            template: hello-word
-#        - - name: on-error
-#            template: subsitute
-#            when: "{{steps.salute.result}} == Empty Value"
 
     - name: hello-word
       container:
@@ -26,8 +19,7 @@ spec:
     - name: on-error
       container:
         image: alpine:latest
-        args: [sh, -c, "echo hello"]
-
+        args: [sh, -c, "echo hello-word job has failed. This is a substitute job"]
 
     - dag:
         tasks:
