@@ -35,6 +35,6 @@ spec:
             template: hello-word
           - name: on-error
             template: on-error
-            dependens: "hello-word.Failed || hello-word.Errored"
+            depends: "hello-word.Failed || hello-word.Errored"
       name: dagger
 
