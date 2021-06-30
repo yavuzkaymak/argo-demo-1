@@ -5,15 +5,15 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-options: Replace=true
 spec:
-  entrypoint: main
+  entrypoint: dagger
   templates:
-    - name: main
-      steps:
-        - - name: salute
-            template: hello-word
-        - - name: on-error
-            template: subsitute
-            when: "{{steps.salute.result}} == Empty Value"
+#    - name: main
+#      steps:
+#        - - name: salute
+#            template: hello-word
+#        - - name: on-error
+#            template: subsitute
+#            when: "{{steps.salute.result}} == Empty Value"
 
     - name: hello-word
       container:
@@ -28,4 +28,14 @@ spec:
         image: alpine:latest
         args: [sh, -c, "echo hello"]
 
+
+    - dag:
+        tasks:
+          - name: hello-word
+            template: hello-word
+          - name: on-error
+            template: on-error
+            dependencies:
+              - hello-word
+      name: dagger
 
