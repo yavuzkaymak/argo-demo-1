@@ -14,6 +14,9 @@ You can manipulate the variable using Argo Workflows' gui.
 
 ###  Docker Way
 
+If you are new to the container technologies. I would recommend setting up docker-desktop and activating \
+its Kubernetes feature.
+
 Important! The dockerfile copies the content of the kube config file 
 which is registered in user's KUBECONFIG env variable. That means the container doesn't necessarily interact with the default config file found under home directory's .kube folder.
 It is so designed that those who organize environments based on directories 
