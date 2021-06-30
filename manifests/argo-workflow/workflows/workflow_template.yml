@@ -2,6 +2,8 @@ apiVersion: argoproj.io/v1alpha1
 kind: WorkflowTemplate
 metadata:
   name: hello-template
+  annotations:
+    argocd.argoproj.io/sync-options: Replace=true
 spec:
   entrypoint: main
   templates:
