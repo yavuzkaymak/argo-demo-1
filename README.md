@@ -35,6 +35,9 @@ docker run -rm -it <your_super_cool_tag>
 
 That's it. You should see argo-cd url and credentials your screen.
 
+Tipp: Instead of throwing your kubeconfig in the image, you can build your own image without kubeconfig file
+and then mount your kubeconfig during execution of the docker image with -v flag.
+
 ### Python Way
 
 Python script does the same as the docker container but in a slightly more interactive way.
