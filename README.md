@@ -58,6 +58,6 @@ python -c 'import main; main.ArgoInstaller().getArgoCDCredentials()'
 
 for argo-workflows: 
 
-python -c 'import main; main.ArgoInstaller().getArgoWFCredentials'
+python -c 'import main; main.ArgoInstaller().getArgoWFCredentials()'
 
 
