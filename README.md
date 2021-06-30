@@ -10,6 +10,9 @@ executes a Talend Job and only if the Job fails executes a shell command in an a
 The Talend job looks for "COOL_NAME". If the variable is not found "CIMT" will be used as default. If the
 variable exists but as an empty string, it will throw an error which will trigger the second job.
 
+The Talend job was created using Talend Open Studio and its image is found in docker hub 
+vizgen/hello_word.
+
 You can manipulate the variable using Argo Workflows' gui.
 
 ###  Docker Way
