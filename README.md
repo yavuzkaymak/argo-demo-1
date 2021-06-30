@@ -46,7 +46,7 @@ The script offers a more secure way of interacting with the cluster. As it only 
 You should set in .env file KUBECONFIG var: for example KUBECONFIG=C:/Users/super_user/.kube/config
 The script will check if docker-desktop is found in config and then it will ask user to config if the user has chosen the right cluster.
 
-python3 -m venv venv ## lets create a virtual environment \ 
+python3 -m venv venv \
 Linux -> source venv/bin/activate \
 Windows -> .\venv\Scripts\activate \
 pip install -r requirements.txt\
@@ -56,7 +56,7 @@ python main.py
 Go to the python-way directory: \
 python -c 'import main; main.ArgoInstaller().getArgoCDCredentials()'
 
-for argo-workflows: \
+for argo-workflows: 
 
 python -c 'import main; main.ArgoInstaller().getArgoWFCredentials'
 
