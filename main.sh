@@ -24,7 +24,7 @@ function installer() {
   #arg[1] -> namespace, arg[2] -> file to be applied, arg[3] flags to be followed in wait clause
   echo "[INFO] Deploying $1"
   kubectl apply -n "$1" -f "$2" >/dev/null && \
-  kubectl wait --for=condition=Ready --timeout=120s pods -n "$1" "$3"  >/dev/null
+  kubectl wait --for=condition=Ready --timeout=360s pods -n "$1" "$3"  >/dev/null
 
   if [[ $? -ne 0 ]]; then
     echo "[INFO] $1 could not be deployed"; else
