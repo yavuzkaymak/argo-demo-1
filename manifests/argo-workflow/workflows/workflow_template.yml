@@ -10,7 +10,7 @@ spec:
 
     - name: hello-word
       container:
-        image: vizgen/hello_word
+        image: vizgen/hello
         imagePullPolicy: Always
         env:
           - name: COOL_NAME
