@@ -11,7 +11,7 @@ The Talend job looks for "COOL_NAME". If the variable is not found "CIMT"  be us
 variable exists but as an empty string, it will throw an error which will trigger the second job.
 
 The Talend job was created using Talend Open Studio and its image is found in docker hub 
-vizgen/hello_word.
+vizgen/hello.
 
 You can manipulate the variable using Argo Workflows' gui.
 
