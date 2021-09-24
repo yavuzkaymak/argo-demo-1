@@ -14,7 +14,7 @@ spec:
         imagePullPolicy: Always
         env:
           - name: COOL_NAME
-            value: "Frankfurt"
+            value: "Hamburg"
 
     - name: on-error
       container:
