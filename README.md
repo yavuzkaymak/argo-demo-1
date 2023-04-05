@@ -18,21 +18,8 @@ You can manipulate the variable using Argo Workflows' gui.
 If you are new to the container technologies. I would recommend setting up docker-desktop and activating \
    its Kubernetes feature.
 
-## Docker Way
 
-1. check if you have the correct kubeconfig:
-
-echo $KUBECONFIG
-
-2. check once more 
-
-docker run --rm -v ${KUBECONFIG}:/.kube/config bitnami/kubectl config view 
-
-3. If your are sure, then go ahead and deploy:
-
-docker run --rm -v ${KUBECONFIG}:/.kube/config -v ${PWD}:/data --entrypoint=/bin/bash  bitnami/kubectl '/data/main.sh'
-
-## Shell Way
+## Installation
 
 If you have already kubectl install:
 
